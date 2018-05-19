@@ -1,0 +1,11 @@
+Modele.e-commerce/Configurations
+Modele.e-commerce/bin
+Modele.e-commerce/obj
+BusinessLayer.e-commerce/bin
+BusinessLayer.e-commerce/obj
+Modele.Console.e-commerce/bin
+Modele.Console.e-commerce/obj
+Modele.Test.e-commerce/bin
+Modele.Test.e-commerce/obj
+packages/
+.vs/
