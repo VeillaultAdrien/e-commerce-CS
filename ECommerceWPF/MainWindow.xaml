@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ECommerceWPF"
+        xmlns:my="clr-namespace:ECommerceWPF.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
- 
     <DockPanel>
-        <Label DockPanel.Dock="Top">Test</Label>
+        <Label DockPanel.Dock="Top" Background="AliceBlue" HorizontalAlignment="Center">Test</Label>
+        <my:ListeProduit DockPanel.Dock="Left" Width="200"></my:ListeProduit>
+        <my:DetailProduit></my:DetailProduit>
     </DockPanel>
-
 </Window>

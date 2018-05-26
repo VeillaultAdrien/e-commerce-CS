@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceWPF.ViewModels
 {
-    public class ListProduitViewModel
+    public class ListeProduitViewModel
     {
     }
 }

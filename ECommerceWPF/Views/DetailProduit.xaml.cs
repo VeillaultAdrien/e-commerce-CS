@@ -18,7 +18,7 @@ namespace ECommerceWPF.Views
     /// <summary>
     /// Logique d'interaction pour DetailProduit.xaml
     /// </summary>
-    public partial class DetailProduit : Page
+    public partial class DetailProduit : UserControl
     {
         public DetailProduit()
         {

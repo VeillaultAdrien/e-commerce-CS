@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ECommerceWPF.Views
 {
     /// <summary>
-    /// Logique d'interaction pour listProduit.xaml
+    /// Logique d'interaction pour ListeProduit.xaml
     /// </summary>
-    public partial class listProduit : Page
+    public partial class ListeProduit : UserControl
     {
-        public listProduit()
+        public ListeProduit()
         {
             InitializeComponent();
         }
