@@ -64,20 +64,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Modele\Entities\Categorie.cs" />
     <Compile Include="Modele\Entities\Client.cs" />
+    <Compile Include="Modele\Entities\Commande.cs" />
+    <Compile Include="Modele\Entities\CommandeProduit.cs" />
+    <Compile Include="Modele\Entities\LogProduit.cs" />
+    <Compile Include="Modele\Entities\Produit.cs" />
+    <Compile Include="Modele\Entities\Statut.cs" />
+    <Compile Include="Modele\Fluent\CategorieFluent.cs" />
     <Compile Include="Modele\Fluent\Client_Fluent.cs" />
+    <Compile Include="Modele\Fluent\CommandeProduitFluent.cs" />
+    <Compile Include="Modele\Fluent\Commande_Fluent.cs" />
+    <Compile Include="Modele\Fluent\LogProduit_Fluent.cs" />
+    <Compile Include="Modele\Fluent\ProduitFluent.cs" />
+    <Compile Include="Modele\Fluent\Statut_Fluent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Configurations\Database.e-commerce.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -90,6 +96,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configurations\Database.e-commerce.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
