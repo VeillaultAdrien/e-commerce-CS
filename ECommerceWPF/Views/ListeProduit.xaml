@@ -4,17 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ECommerceWPF.Views"
+             xmlns:my="clr-namespace:ECommerceWPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Label>Liste Produit</Label>
-        <ListView Grid.Column="0"  Grid.Row="0" Grid.RowSpan="3" Margin="5px">
+    <DockPanel>
+        <ListView  Width="100" DockPanel.Dock="Left" Margin="5px">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100px" Header="Code"/>
-                    <GridViewColumn Width="150px" Header="Nom" />
+                    <GridViewColumn Width="50" Header="Code"/>
+                    <GridViewColumn Width="50" Header="Nom" />
                 </GridView>
             </ListView.View>
         </ListView>
-    </Grid>
+
+        <my:DetailProduit DataContext="{Binding SelectedProduit, UpdateSourceTrigger=PropertyChanged}"></my:DetailProduit>
+    </DockPanel>
 </UserControl>

@@ -9,7 +9,6 @@
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
         <Label DockPanel.Dock="Top" Background="AliceBlue" HorizontalAlignment="Center">Test</Label>
-        <my:ListeProduit DockPanel.Dock="Left" Width="200"></my:ListeProduit>
-        <my:DetailProduit></my:DetailProduit>
+        <my:ListeProduit DockPanel.Dock="Left" DataContext="{Binding ListeProduitViewModel}"></my:ListeProduit>
     </DockPanel>
 </Window>
