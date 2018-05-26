@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Modele.e_commerce.Modele.Initialisation;
 
 namespace Modele.e_commerce
 {
@@ -14,7 +15,7 @@ namespace Modele.e_commerce
     {
         public Context() : base("name=testDatabase")
         {
-            Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
+            Database.SetInitializer<Context>(new ContextInitializer());
         }
 
         public DbSet<Client> Clients { get; set; }
@@ -25,5 +26,15 @@ namespace Modele.e_commerce
             modelBuilder.HasDefaultSchema("database");
             modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+        /// <summary>
+        /// Mes Produits
+        /// </summary>
+        public DbSet<Produit> Produits { get; set; }
+
+        /// <summary>
+        /// Mes Catégories
+        /// </summary>
+        public DbSet<Categorie> Categories { get; set; }
     }
 }

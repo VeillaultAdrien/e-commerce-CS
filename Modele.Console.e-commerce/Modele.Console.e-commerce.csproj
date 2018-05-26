@@ -60,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer.e-commerce\BusinessLayer.e-commerce.csproj">
+      <Project>{BA18B45D-BB51-4F62-81B5-F59FB71F22B3}</Project>
+      <Name>BusinessLayer.e-commerce</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modele.e-commerce\Modele.e-commerce.csproj">
       <Project>{903e106a-0bc1-43fc-b83d-4b108c8b52b8}</Project>
       <Name>Modele.e-commerce</Name>
