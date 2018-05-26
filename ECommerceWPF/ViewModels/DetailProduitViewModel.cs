@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Modele.e_commerce.Modele.Entities;
 
 namespace ECommerceWPF.ViewModels
 {
@@ -25,8 +26,8 @@ namespace ECommerceWPF.ViewModels
         /// </summary>
         public DetailProduitViewModel(Produit p) // à adapater à la BD
         {
-            _code = p.Code;
-            _nom = p.Nom;
+            _code = p.Code.ToString();
+            _nom = p.Libelle;
         }
 
         #endregion
@@ -58,7 +59,7 @@ namespace ECommerceWPF.ViewModels
         /// <summary>
         /// Commande pour ouvrir la fenêtre pour ajouter une opération
         /// </summary>
-        public ICommand AddOperation
+        /*public ICommand AddOperation
         {
             get
             {
@@ -66,19 +67,19 @@ namespace ECommerceWPF.ViewModels
                     _addOperation = new RelayCommand(() => this.ShowWindowOperation());
                 return _addOperation;
             }
-        }
+        }*/
 
         /// <summary>
         /// Permet l'ouverture de la fenêtre
         /// </summary>
-        private void ShowWindowOperation()
+        /*private void ShowWindowOperation()
         {
             Views.Operation operationWindow = new Views.Operation();
             operationWindow.DataContext = this;
             operationWindow.ShowDialog();
-        }
+        }*/
 
         #endregion
     }
 }
-}
+

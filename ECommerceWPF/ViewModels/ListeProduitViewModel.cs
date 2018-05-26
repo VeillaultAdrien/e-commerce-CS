@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLayer.e_commerce;
+using Modele.e_commerce.Modele.Entities;
 
 namespace ECommerceWPF.ViewModels
 {
@@ -25,7 +27,7 @@ namespace ECommerceWPF.ViewModels
         {
             // on appelle le mock pour initialiser une liste de produits
             _produits = new ObservableCollection<DetailProduitViewModel>();
-            foreach (Produit p in BusinessManagerMock.Instance.GetAllProduit())
+            foreach (Produit p in BusinessManager.Instance.GetAllProduit())
             {
                 _produits.Add(new DetailProduitViewModel(p));
             }
