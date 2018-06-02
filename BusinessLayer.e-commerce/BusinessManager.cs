@@ -96,5 +96,19 @@ namespace BusinessLayer.e_commerce
         }
 
         #endregion
+
+        #region Commande
+
+        /// <summary>
+        /// Récupérer une liste de catégories en base
+        /// </summary>
+        /// <returns>Liste de Categorie</returns>
+        public List<Commande> GetAllCommandes()
+        {
+            CommandeQuery cq = new CommandeQuery(contexte);
+            return cq.GetAll().ToList();
+        }
+
+        #endregion
     }
 }
