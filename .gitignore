@@ -11,3 +11,5 @@ packages/
 .vs/
 ECommerceWPF/bin
 ECommerceWPF/obj
+ServiceECommerce/bin
+ServiceECommerce/obj

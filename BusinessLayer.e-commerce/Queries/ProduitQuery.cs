@@ -40,5 +40,15 @@ namespace BusinessLayer.e_commerce.Queries
         {
             return _contexte.Produits.Where(p => p.IDProduit == id);
         }
+
+        /// <summary>
+        /// Récupérer un produit par son Code
+        /// </summary>
+        /// <param name="Code">Code du produit à récupérer</param>
+        /// <returns>IQueryable de Produit</returns>
+        public IQueryable<Produit> GetByCode(int Code)
+        {
+            return _contexte.Produits.Where(p => p.Code == Code);
+        }
     }
 }

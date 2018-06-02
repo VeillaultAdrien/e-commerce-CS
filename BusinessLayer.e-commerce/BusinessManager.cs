@@ -48,6 +48,13 @@ namespace BusinessLayer.e_commerce
             return pq.GetAll().ToList();
         }
 
+        public int Stock(int Code)
+        {
+            ProduitQuery pq = new ProduitQuery(contexte);
+            IQueryable<Produit> p = pq.GetByCode(Code);
+            return p.Select(prod => prod.Stock).FirstOrDefault();
+        }
+
         /// <summary>
         /// Ajouter un produit en base
         /// </summary>

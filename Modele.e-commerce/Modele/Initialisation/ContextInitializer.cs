@@ -80,6 +80,36 @@ namespace Modele.e_commerce.Modele.Initialisation
             foreach (Produit prod in defaultProduits)
                 context.Produits.Add(prod);
 
+
+            context.Clients.Add(new Client() { Actif = true, Nom = "Forever", Prenom = "Michel" });
+
+            context.SaveChanges();
+
+            IList<Statut> defaultStatut = new List<Statut>();
+
+            defaultStatut.Add(new Statut() { Libelle = "Validée" });
+            defaultStatut.Add(new Statut() {Libelle = "Préparation" });
+            defaultStatut.Add(new Statut() { Libelle = "Envoyé" });
+
+            foreach (Statut stat in defaultStatut)
+                context.Statuts.Add(stat);
+
+            context.SaveChanges();
+
+
+            IList<Commande> defaultCommande = new List<Commande>();
+
+            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(1), StatutId = context.Statuts.Find(1).IdStatut, DateCommande = new DateTime(2018,5,1,8,30,52), Observation = "J'adore les patates" });
+            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(2), StatutId = context.Statuts.Find(2).IdStatut, DateCommande = new DateTime(2018, 5, 1, 8, 30, 52), Observation = "J'adore la raclette" });
+            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(3), StatutId = context.Statuts.Find(3).IdStatut, DateCommande = new DateTime(2018, 5, 1, 8, 30, 52), Observation = "J'adore la pizza" });
+
+            foreach (Commande categ in defaultCommande)
+                context.Commandes.Add(categ);
+
+            context.SaveChanges();
+
+
+
             base.Seed(context);
         }
     }

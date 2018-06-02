@@ -41,5 +41,10 @@ namespace Modele.e_commerce
         /// Mes Catégories
         /// </summary>
         public DbSet<Commande> Commandes { get; set; }
+
+        /// <summary>
+        /// Mes Status
+        /// </summary>
+        public DbSet<Statut> Statuts { get; set; }
     }
 }
