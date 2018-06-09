@@ -1,0 +1,23 @@
+﻿@model Modele.e_commerce.Modele.Entities.Produit
+@{
+    ViewBag.Title = "Details du produit";
+
+}
+
+    <h1 class="titleProduct">@Model.Libelle</h1>
+    <div class="row">
+        <div class="col-md-6">Catégorie : </div>
+        <div class="col-md-6">@Model.Categorie</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">Description : </div>
+        <div class="col-md-6">@Model.Description</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">Prix : </div>
+        <div class="col-md-6">@Model.Prix €</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">Stock : </div>
+        <div class="col-md-6">@Model.Stock</div>
+    </div>
