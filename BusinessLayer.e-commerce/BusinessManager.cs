@@ -88,6 +88,12 @@ namespace BusinessLayer.e_commerce
             pc.Supprimer(produitID);
         }
 
+        public Produit GetProduit(int idProduit)
+        {
+            ProduitQuery pq = new ProduitQuery(contexte);
+            return pq.GetByID(idProduit).SingleOrDefault();
+        }
+
         #endregion
 
         #region Categorie
