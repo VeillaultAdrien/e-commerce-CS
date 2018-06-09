@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Modele.e_commerce.Modele.Entities;
+using BusinessLayer.e_commerce;
 
 namespace ECommerceWPF.ViewModels
 {
@@ -14,7 +15,8 @@ namespace ECommerceWPF.ViewModels
 
         private string _code;
         private string _nom;
-        private RelayCommand _addOperation;
+        private int _idProduit;
+        private RelayCommand _modifyOperation;
 
         #endregion
 
@@ -28,6 +30,7 @@ namespace ECommerceWPF.ViewModels
         {
             _code = p.Code.ToString();
             _nom = p.Libelle;
+            _idProduit = p.IDProduit;
         }
 
         #endregion
@@ -52,32 +55,40 @@ namespace ECommerceWPF.ViewModels
             set { _nom = value; }
         }
 
+        /// <summary>
+        /// Nom du produit
+        /// </summary>
+        public int IDProduit
+        {
+            get { return _idProduit; }
+            set { _idProduit = value; }
+        }
+
         #endregion
 
         #region Commandes
 
-        /// <summary>
-        /// Commande pour ouvrir la fenêtre pour ajouter une opération
-        /// </summary>
-        /*public ICommand AddOperation
+        //<summary>
+        // Commande pour ouvrir la fenêtre pour ajouter une opération
+        // </summary>
+        public ICommand ModifyOperation
         {
             get
             {
-                if (_addOperation == null)
-                    _addOperation = new RelayCommand(() => this.ShowWindowOperation());
-                return _addOperation;
+                if (_modifyOperation == null)
+                    _modifyOperation = new RelayCommand(() => this.UpdateProduit());
+                return _modifyOperation;
             }
-        }*/
+        }
 
-        /// <summary>
-        /// Permet l'ouverture de la fenêtre
-        /// </summary>
-        /*private void ShowWindowOperation()
+        public void UpdateProduit()
         {
-            Views.Operation operationWindow = new Views.Operation();
-            operationWindow.DataContext = this;
-            operationWindow.ShowDialog();
-        }*/
+            Produit p = BusinessManager.Instance.GetProduit(_idProduit);
+            p.Code = Int32.Parse(_code);
+            p.Libelle = _nom;
+            BusinessManager.Instance.ModifierProduit(p);
+
+        }
 
         #endregion
     }
