@@ -1,29 +1,33 @@
 ﻿@model Modele.e_commerce.Modele.Entities.Produit
 @{
-    ViewBag.Title = "Details du produit";
+    ViewBag.Title = "Modification du produit";
 
 }
 
-<form>
-    <label for="libelle">Libellé</label>
-    <input type="text" id="libelle" value="@Model.Libelle" />
-    <label for="Categorie">Categorie</label>
-    <select id="Categorie">
-        <option>Cat1</option>
-        <option>Cat2</option>
-    </select>
-    <label for="desc">Description</label>
-    <textarea id="desc" value="@Model.Description"></textarea>
-    <label for="prix">Prix</label>
-    <input type="number" id="prix" value="@Model.Prix" />
-    <label for="stock">Stock</label>
-    <input id="stock" type="number" value="@Model.Stock" />
-    <label for="code">Code</label>
-    <input id="code" type="number" value="@Model.Code" />
-    <label for="actif">Actif ?</label>
-    <select id="actif">
-        <option>Actif</option>
-        <option>Non actif</option>
-    </select>
-    <input type="submit" />
-</form>
+
+
+@using (Html.BeginForm("editionProduit", "Produit", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "Echec de la modification du produit")
+    <div>
+    @Html.LabelFor(m=> m.Libelle);
+    @Html.TextBox("Libelle",@Model.Libelle);
+    </div>
+    <div>
+    @Html.LabelFor(m => m.Description);
+    @Html.TextArea("Description", @Model.Description);
+    </div>
+    <div>
+    @Html.LabelFor(m => m.Prix);
+    @Html.TextBox("Prix", @Model.Prix, new { type = "number" });
+    </div>
+    <div>
+    @Html.LabelFor(m => m.Stock);
+    @Html.TextBox("Stock", @Model.Stock, new { type = "number" });
+    </div>
+    <div>
+    @Html.LabelFor(m => m.Code);
+    @Html.TextBox("Code", @Model.Code, new { type = "number" });
+    </div>
+    <input type="submit" value="valider" />
+}
