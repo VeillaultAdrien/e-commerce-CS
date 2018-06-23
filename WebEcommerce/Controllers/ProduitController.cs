@@ -46,5 +46,14 @@ namespace WebEcommerce.Controllers
             }
             return View("DetailsProduit", model);
         }
+
+        [HttpGet]
+        [ActionName("supp")]
+        public ActionResult SupprimerProduit(int id)
+        {
+
+                BusinessLayer.e_commerce.BusinessManager.Instance.SupprimerProduit(id);
+                return ListProduit();
+        }
     }
 }
