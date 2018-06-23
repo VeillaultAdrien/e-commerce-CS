@@ -40,10 +40,9 @@ namespace WebEcommerce.Controllers
         [HttpPost][ActionName("editionProduit")]
         public ActionResult ChangeProduit(Produit model)
         {
-            if(ModelState.IsValid)
-            {
-                BusinessLayer.e_commerce.BusinessManager.Instance.ModifierProduit(model);
-            }
+
+            BusinessManager.Instance.ModifierProduit(model);
+            
             return View("DetailsProduit", model);
         }
 

@@ -43,7 +43,6 @@ namespace BusinessLayer.e_commerce.Commands
             if (upPrd != null)
             {
                 upPrd.Libelle = p.Libelle;
-                upPrd.CategorieId = p.CategorieId;
                 upPrd.Actif = p.Actif;
                 upPrd.Code = p.Code;
                 upPrd.Description = p.Description;
