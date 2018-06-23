@@ -8,15 +8,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
-        <ListView  Width="100" DockPanel.Dock="Left" Margin="5px" ItemsSource="{Binding Produits, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduit, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <ListView Background="LightSteelBlue" Width="300" DockPanel.Dock="Left" Margin="5px" ItemsSource="{Binding Produits, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduit, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="50" Header="Code" DisplayMemberBinding="{Binding Code}"/>
-                    <GridViewColumn Width="50" Header="Nom" DisplayMemberBinding="{Binding Nom}"/>
+                    <GridViewColumn Width="50"  Header="Code" DisplayMemberBinding="{Binding Code}"/>
+                    <GridViewColumn Width="250" Header="Nom" DisplayMemberBinding="{Binding Nom}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <my:DetailProduit DataContext="{Binding SelectedProduit, UpdateSourceTrigger=PropertyChanged}"></my:DetailProduit>
+        <my:DetailProduit Background="AliceBlue" DataContext="{Binding SelectedProduit, UpdateSourceTrigger=PropertyChanged}"></my:DetailProduit>
     </DockPanel>
 </UserControl>

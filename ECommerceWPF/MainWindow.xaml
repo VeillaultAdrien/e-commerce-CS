@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ECommerceWPF"
         xmlns:my="clr-namespace:ECommerceWPF.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="850" Background="AliceBlue">
     <DockPanel>
         <Label DockPanel.Dock="Top" Background="AliceBlue" HorizontalAlignment="Center" Content="E-Commerce"/>
         <my:ListeProduit DockPanel.Dock="Left" DataContext="{Binding ListeProduitViewModel}"></my:ListeProduit>
