@@ -44,6 +44,11 @@ namespace BusinessLayer.e_commerce.Commands
             {
                 upPrd.Libelle = p.Libelle;
                 upPrd.CategorieId = p.CategorieId;
+                upPrd.Actif = p.Actif;
+                upPrd.Code = p.Code;
+                upPrd.Description = p.Description;
+                upPrd.Prix = p.Prix;
+                upPrd.Stock = p.Stock;
             }
             _contexte.SaveChanges();
         }
