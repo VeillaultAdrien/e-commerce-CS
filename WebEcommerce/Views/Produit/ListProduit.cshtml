@@ -10,9 +10,9 @@
 @foreach (var produit in Model)
 {
     <div class="row">
-        <div class="col-md-4">@Html.ActionLink(@produit.Libelle, "GetProduit", new {id = @produit.IDProduit}, null)</div>
+        <div class="col-md-4">@Html.ActionLink(@produit.Libelle, "get", new {id = @produit.IDProduit}, null)</div>
         <div class="col-md-4">@produit.Prix €</div>
-        <div class="col-md-2">@Html.ActionLink("Modifier", "modif", new { id = @produit.IDProduit }, new { @class = "btn btn-default", role = "button" })</div>
+        <div class="col-md-2">@Html.ActionLink("Modifier", "edit", new { id = @produit.IDProduit }, new { @class = "btn btn-default", role = "button" })</div>
         <div class="col-md-2">@Html.ActionLink("Supprimer", "supp", new { id = @produit.IDProduit }, new { @class = "btn btn-default", role = "button" })</div>
     </div>
 }

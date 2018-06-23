@@ -13,3 +13,7 @@ ECommerceWPF/bin
 ECommerceWPF/obj
 ServiceECommerce/bin
 ServiceECommerce/obj
+WebEcommerce/bin
+WebEcommerce/obj
+WebEcommerce.Tests/bin
+WebEcommerce.Tests/obj
