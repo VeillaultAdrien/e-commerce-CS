@@ -32,6 +32,16 @@ namespace BusinessLayer.e_commerce.Queries
         }
 
         /// <summary>
+        /// Récupérer tous les produits ayant dans leur libelle l'attribut nom
+        /// </summary>
+        ///  <param name="nom">String que doit contenir le libellé d'un produit pour le récupérer</param>
+        /// <returns>IQueryable de Produit</returns>
+        public IQueryable<Produit> GetProduitsByName(String nom)
+        {
+            return _contexte.Produits.Where(p => p.Libelle.ToLower().Contains(nom.ToLower()));
+        }
+
+        /// <summary>
         /// Récupérer un produit par son ID
         /// </summary>
         /// <param name="id">Identifiant du produit à récupérer</param>

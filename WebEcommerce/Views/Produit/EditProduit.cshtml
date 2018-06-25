@@ -11,24 +11,24 @@
     @Html.ValidationSummary(true, "Echec de la modification du produit")
     @Html.TextBoxFor(m => m.IDProduit, new { @class = "hidden" })
     <div>
-        @Html.LabelFor(m => m.Libelle);
-        @Html.TextBox("Libelle", @Model.Libelle);
+        @Html.LabelFor(m => m.Libelle)
+        @Html.TextBox("Libelle", @Model.Libelle)
     </div>
     <div>
-        @Html.LabelFor(m => m.Description);
-        @Html.TextArea("Description", @Model.Description);
+        @Html.LabelFor(m => m.Description)
+        @Html.TextArea("Description", @Model.Description)
     </div>
     <div>
-        @Html.LabelFor(m => m.Prix);
-        @Html.TextBox("Prix", @Model.Prix, new { type = "number" });
+        @Html.LabelFor(m => m.Prix)
+        @Html.TextBox("Prix", @Model.Prix, new { type = "number", step = 0.1 , min = 0 })
     </div>
     <div>
-        @Html.LabelFor(m => m.Stock);
-        @Html.TextBox("Stock", @Model.Stock, new { type = "number" });
+        @Html.LabelFor(m => m.Stock)
+        @Html.TextBox("Stock", @Model.Stock, new { type = "number" })
     </div>
     <div>
-        @Html.LabelFor(m => m.Code);
-        @Html.TextBox("Code", @Model.Code, new { type = "number" });
+        @Html.LabelFor(m => m.Code)
+        @Html.TextBox("Code", @Model.Code, new { type = "number" })
     </div>
     <input type="submit" value="valider" />
 }

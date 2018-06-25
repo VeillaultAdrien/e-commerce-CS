@@ -39,13 +39,23 @@ namespace BusinessLayer.e_commerce
         #region Produit
 
         /// <summary>
-        /// Récupérer une liste de produit en base
+        /// Récupérer la liste de tous les produits en base
         /// </summary>
         /// <returns>Liste de Produit</returns>
         public List<Produit> GetAllProduit()
         {
             ProduitQuery pq = new ProduitQuery(contexte);
             return pq.GetAll().ToList();
+        }
+
+        /// <summary>
+        /// Récupérer une liste de produits en fontcion du nom passé en paramètre
+        /// </summary>
+        /// <returns>Liste de Produit</returns>
+        public List<Produit> SearchProduit(String nomProduit)
+        {
+            ProduitQuery pq = new ProduitQuery(contexte);
+            return pq.GetProduitsByName(nomProduit).ToList();
         }
 
         public int Stock(int Code)

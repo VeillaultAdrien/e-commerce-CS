@@ -28,4 +28,16 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
+    @using (Html.BeginForm("list", "Produit", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true, "Echec lors de la saisie de la recherche")
+ 
+        <div>
+            @Html.Label("Nom du produit")
+            @Html.TextBox("NomProduit","",new { name = "NomProduit" })
+        </div>
+
+        <input type="submit" value="valider" />
+    }
+   
 </div>

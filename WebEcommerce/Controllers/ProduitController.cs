@@ -17,9 +17,20 @@ namespace WebEcommerce.Controllers
         }
 
         [ActionName("list")]
+        [AcceptVerbs("POST", "GET")]
         public ActionResult ListProduit()
         {
             List<Produit> p = BusinessManager.Instance.GetAllProduit();
+            if (HttpContext.Request.RequestType == "POST")
+            {
+                String nom = Request.Params.Get("NomProduit");
+               
+                //Parce que la console c'est la vie pour débugger :p
+                System.Diagnostics.Debug.WriteLine("Nom du produit" + nom);
+                p = BusinessManager.Instance.SearchProduit(nom);
+                return View("ListProduit", p);
+            }
+            
             return View("ListProduit",p);
         }
 
@@ -50,7 +61,6 @@ namespace WebEcommerce.Controllers
         [ActionName("supp")]
         public ActionResult SupprimerProduit(int id)
         {
-
                 BusinessLayer.e_commerce.BusinessManager.Instance.SupprimerProduit(id);
                 return ListProduit();
         }
