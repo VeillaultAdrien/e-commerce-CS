@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLayer.e_commerce.Container;
 using Modele.e_commerce;
 using Modele.e_commerce.Modele.Entities;
 
@@ -39,6 +40,17 @@ namespace BusinessLayer.e_commerce.Queries
         public IQueryable<Produit> GetProduitsByName(String nom)
         {
             return _contexte.Produits.Where(p => p.Libelle.ToLower().Contains(nom.ToLower()));
+        }
+
+        /// <summary>
+        /// Récupére des les id des produits des plus vendu au moins vendu;
+        /// </summary>
+        /// <returns>IQueryable de Produit</returns>
+        public List<ProduitQuantite> GetTotalProduitsCommande()
+        {
+            return _contexte.CommandeProduits.GroupBy(p => p.ProduitID)
+                .Select(p => new ProduitQuantite() {ProduitID = p.Key, Quantite = p.Sum(i => i.Quantite)})
+                .OrderByDescending(pq => pq.Quantite).Take(5).ToList();
         }
 
         /// <summary>

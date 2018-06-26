@@ -23,7 +23,7 @@ namespace BusinessLayer.e_commerce.Queries
         }
 
         /// <summary>
-        /// Récupérer tous les produits
+        /// Récupérer toute les commandes
         /// </summary>
         /// <returns>IQueryable de Produit</returns>
         public IQueryable<Commande> GetAll()
@@ -32,10 +32,19 @@ namespace BusinessLayer.e_commerce.Queries
         }
 
         /// <summary>
-        /// Récupérer un produit par son ID
+        /// Récupérer les 5 dernière commande
         /// </summary>
-        /// <param name="id">Identifiant du produit à récupérer</param>
         /// <returns>IQueryable de Produit</returns>
+        public IQueryable<Commande> Get5LastCommandes()
+        {
+            return _contexte.Commandes.OrderByDescending(c => c.DateCommande).Take(5);
+        }
+
+        /// <summary>
+        /// Récupérer une commande par son ID
+        /// </summary>
+        /// <param name="id">Identifiant de la commande à récupérer</param>
+        /// <returns>IQueryable de Commande</returns>
         public IQueryable<Commande> GetByID(int id)
         {
             return _contexte.Commandes.Where(c => c.IdCommande == id);

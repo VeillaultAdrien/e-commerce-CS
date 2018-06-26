@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.e_commerce.Commands;
+using BusinessLayer.e_commerce.Container;
 using BusinessLayer.e_commerce.Queries;
 using Modele.e_commerce;
 using Modele.e_commerce.Modele.Entities;
@@ -56,6 +57,23 @@ namespace BusinessLayer.e_commerce
         {
             ProduitQuery pq = new ProduitQuery(contexte);
             return pq.GetProduitsByName(nomProduit).ToList();
+        }
+
+        /// <summary>
+        /// Récupérer une liste de produits en fontcion du nom passé en paramètre
+        /// </summary>
+        /// <returns>Liste de Produit</returns>
+        public List<Produit> MostSoldProduits()
+        {
+            ProduitQuery produitquery = new ProduitQuery(contexte);
+            List<ProduitQuantite> listpq = produitquery.GetTotalProduitsCommande();
+            List<Produit> listProduit = new List<Produit>();
+            foreach (var pq in listpq)
+            {
+                listProduit.Add(GetProduit(pq.ProduitID));
+            }
+
+            return listProduit;
         }
 
         public int Stock(int Code)
@@ -123,13 +141,24 @@ namespace BusinessLayer.e_commerce
         #region Commande
 
         /// <summary>
-        /// Récupérer une liste de catégories en base
+        /// Récupérer toutes les commandes
         /// </summary>
         /// <returns>Liste de Categorie</returns>
         public List<Commande> GetAllCommandes()
         {
             CommandeQuery cq = new CommandeQuery(contexte);
             return cq.GetAll().ToList();
+        }
+
+
+        /// <summary>
+        /// Récupérer les 5 dernière commandes
+        /// </summary>
+        /// <returns>Liste de Categorie</returns>
+        public List<Commande> LastCommandes()
+        {
+            CommandeQuery cq = new CommandeQuery(contexte);
+            return cq.Get5LastCommandes().ToList();
         }
 
         #endregion

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BusinessLayer.e_commerce;
+using Modele.e_commerce.Modele.Entities;
+using WebEcommerce.Models;
 
 namespace WebEcommerce.Controllers
 {
@@ -10,21 +13,12 @@ namespace WebEcommerce.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            List<Produit> produits = BusinessManager.Instance.MostSoldProduits();
+            List<Commande> commandes = BusinessManager.Instance.LastCommandes();
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+            HomeViewModel homeViewModel = new HomeViewModel() {ListeCommandes = commandes, ListeProduits = produits};
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(homeViewModel);
         }
     }
 }

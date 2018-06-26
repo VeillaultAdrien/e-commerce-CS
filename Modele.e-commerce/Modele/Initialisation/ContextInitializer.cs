@@ -22,6 +22,7 @@ namespace Modele.e_commerce.Modele.Initialisation
             defaultCategories.Add(new Categorie() { Libelle = "Carte Mère" , Actif = true});
             defaultCategories.Add(new Categorie() { Libelle = "Processeur", Actif = true});
             defaultCategories.Add(new Categorie() { Libelle = "RAM", Actif = true});
+            defaultCategories.Add(new Categorie() { Libelle = "Boitier", Actif = true });
 
             foreach (Categorie categ in defaultCategories)
                 context.Categories.Add(categ);
@@ -77,6 +78,30 @@ namespace Modele.e_commerce.Modele.Initialisation
                 Stock = 15
             });
 
+            defaultProduits.Add(new Produit()
+            {
+                Actif = true,
+                CategorieId = context.Categories.Find(4).IDCategorie,
+                Categorie = context.Categories.Find(4),
+                Code = 0005,
+                Description = "Un boitier pour des configurations bureautique (ou gaming) silencieuses",
+                Libelle = "Be Quiet - Silent base 600",
+                Prix = 109.90F,
+                Stock = 4
+            });
+
+            defaultProduits.Add(new Produit()
+            {
+                Actif = true,
+                CategorieId = context.Categories.Find(2).IDCategorie,
+                Categorie = context.Categories.Find(2),
+                Code = 0006,
+                Description = "Un processeur symbolique pour les 40 ans de l'architecture x86 et les 30ans du 8086",
+                Libelle = "Intel Core i7 8086K",
+                Prix = 450.00F,
+                Stock = 5
+            });
+
             foreach (Produit prod in defaultProduits)
                 context.Produits.Add(prod);
 
@@ -100,11 +125,43 @@ namespace Modele.e_commerce.Modele.Initialisation
             IList<Commande> defaultCommande = new List<Commande>();
 
             defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(1), StatutId = context.Statuts.Find(1).IdStatut, DateCommande = new DateTime(2018,5,1,8,30,52), Observation = "J'adore les patates" });
-            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(2), StatutId = context.Statuts.Find(2).IdStatut, DateCommande = new DateTime(2018, 5, 1, 8, 30, 52), Observation = "J'adore la raclette" });
-            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(3), StatutId = context.Statuts.Find(3).IdStatut, DateCommande = new DateTime(2018, 5, 1, 8, 30, 52), Observation = "J'adore la pizza" });
+            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(2), StatutId = context.Statuts.Find(2).IdStatut, DateCommande = new DateTime(2018, 6, 1, 8, 30, 52), Observation = "J'adore la raclette" });
+            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(3), StatutId = context.Statuts.Find(3).IdStatut, DateCommande = new DateTime(2018, 4, 1, 8, 30, 52), Observation = "J'adore la pizza" });
+            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(1), StatutId = context.Statuts.Find(1).IdStatut, DateCommande = new DateTime(2018, 3, 1, 8, 30, 52), Observation = "J'adore les chipolatas" });
+            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(2), StatutId = context.Statuts.Find(2).IdStatut, DateCommande = new DateTime(2018, 7, 1, 8, 30, 52), Observation = "J'adore le confit de canard" });
+            defaultCommande.Add(new Commande() { Client = context.Clients.Find(1), ClientId = context.Clients.Find(1).Id, Statut = context.Statuts.Find(3), StatutId = context.Statuts.Find(3).IdStatut, DateCommande = new DateTime(2018, 9, 1, 8, 30, 52), Observation = "J'adore le magret de canard" });
 
-            foreach (Commande categ in defaultCommande)
-                context.Commandes.Add(categ);
+            foreach (Commande commande in defaultCommande)
+                context.Commandes.Add(commande);
+
+            context.SaveChanges();
+
+            IList<CommandeProduit> defaultCommandeProduit = new List<CommandeProduit>();
+
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(1), Commande = context.Commandes.Find(1), CommandeID = context.Commandes.Find(1).IdCommande, ProduitID = context.Produits.Find(1).IDProduit, Quantite = 1 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(2), Commande = context.Commandes.Find(1), CommandeID = context.Commandes.Find(1).IdCommande, ProduitID = context.Produits.Find(2).IDProduit, Quantite = 1 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(4), Commande = context.Commandes.Find(1), CommandeID = context.Commandes.Find(1).IdCommande, ProduitID = context.Produits.Find(4).IDProduit, Quantite = 1 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(5), Commande = context.Commandes.Find(1), CommandeID = context.Commandes.Find(1).IdCommande, ProduitID = context.Produits.Find(5).IDProduit, Quantite = 1 });
+
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(2), Commande = context.Commandes.Find(2), CommandeID = context.Commandes.Find(2).IdCommande, ProduitID = context.Produits.Find(2).IDProduit, Quantite = 1 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(4), Commande = context.Commandes.Find(2), CommandeID = context.Commandes.Find(2).IdCommande, ProduitID = context.Produits.Find(4).IDProduit, Quantite = 1 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(5), Commande = context.Commandes.Find(2), CommandeID = context.Commandes.Find(2).IdCommande, ProduitID = context.Produits.Find(5).IDProduit, Quantite = 1 });
+
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(4), Commande = context.Commandes.Find(3), CommandeID = context.Commandes.Find(3).IdCommande, ProduitID = context.Produits.Find(4).IDProduit, Quantite = 4 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(6), Commande = context.Commandes.Find(3), CommandeID = context.Commandes.Find(1).IdCommande, ProduitID = context.Produits.Find(6).IDProduit, Quantite = 4 });
+
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(5), Commande = context.Commandes.Find(4), CommandeID = context.Commandes.Find(4).IdCommande, ProduitID = context.Produits.Find(5).IDProduit, Quantite = 1 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(6), Commande = context.Commandes.Find(4), CommandeID = context.Commandes.Find(4).IdCommande, ProduitID = context.Produits.Find(6).IDProduit, Quantite = 1 });
+
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(3), Commande = context.Commandes.Find(5), CommandeID = context.Commandes.Find(5).IdCommande, ProduitID = context.Produits.Find(3).IDProduit, Quantite = 2 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(4), Commande = context.Commandes.Find(5), CommandeID = context.Commandes.Find(5).IdCommande, ProduitID = context.Produits.Find(4).IDProduit, Quantite = 2 });
+
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(3), Commande = context.Commandes.Find(6), CommandeID = context.Commandes.Find(6).IdCommande, ProduitID = context.Produits.Find(3).IDProduit, Quantite = 1 });
+            defaultCommandeProduit.Add(new CommandeProduit() { Produit = context.Produits.Find(5), Commande = context.Commandes.Find(6), CommandeID = context.Commandes.Find(6).IdCommande, ProduitID = context.Produits.Find(5).IDProduit, Quantite = 1 });
+
+
+            foreach (CommandeProduit commandeProduit in defaultCommandeProduit)
+                context.CommandeProduits.Add(commandeProduit);
 
             context.SaveChanges();
 
