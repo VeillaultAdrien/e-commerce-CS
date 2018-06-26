@@ -60,7 +60,7 @@ namespace BusinessLayer.e_commerce
         }
 
         /// <summary>
-        /// Récupérer une liste de produits en fontcion du nom passé en paramètre
+        /// Récupére les 5 produits les plus vendus
         /// </summary>
         /// <returns>Liste de Produit</returns>
         public List<Produit> MostSoldProduits()
@@ -76,6 +76,10 @@ namespace BusinessLayer.e_commerce
             return listProduit;
         }
 
+        /// <summary>
+        /// Récupére le stock d'un produit avec son code passé en paramètre
+        /// </summary>
+        /// <returns>Le stock</returns>
         public int Stock(int Code)
         {
             ProduitQuery pq = new ProduitQuery(contexte);
@@ -127,7 +131,7 @@ namespace BusinessLayer.e_commerce
         #region Categorie
 
         /// <summary>
-        /// Récupérer une liste de catégories en base
+        /// Récupérer toutes les catégories de la base
         /// </summary>
         /// <returns>Liste de Categorie</returns>
         public List<Categorie> GetAllCategorie()
@@ -143,7 +147,7 @@ namespace BusinessLayer.e_commerce
         /// <summary>
         /// Récupérer toutes les commandes
         /// </summary>
-        /// <returns>Liste de Categorie</returns>
+        /// <returns>Liste de Commandes</returns>
         public List<Commande> GetAllCommandes()
         {
             CommandeQuery cq = new CommandeQuery(contexte);
@@ -154,7 +158,7 @@ namespace BusinessLayer.e_commerce
         /// <summary>
         /// Récupérer les 5 dernière commandes
         /// </summary>
-        /// <returns>Liste de Categorie</returns>
+        /// <returns>Liste de Commandes</returns>
         public List<Commande> LastCommandes()
         {
             CommandeQuery cq = new CommandeQuery(contexte);

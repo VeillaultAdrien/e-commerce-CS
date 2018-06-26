@@ -48,6 +48,22 @@ namespace WebEcommerce.Controllers
             return View("EditProduit", p);
         }
 
+        [ActionName("ajout")]
+        public ActionResult AjouterProduit()
+        {
+           return View("AjouterProduit");
+        }
+
+        [HttpPost]
+        [ActionName("ajouterProduit")]
+        public ActionResult AjoutProduit(Produit model)
+        {
+
+            BusinessManager.Instance.AjouterProduit(model);
+
+            return View("DetailsProduit", model);
+        }
+
         [HttpPost][ActionName("editionProduit")]
         public ActionResult ChangeProduit(Produit model)
         {
