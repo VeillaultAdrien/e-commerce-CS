@@ -18,24 +18,36 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nom d'application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("List Produit", "Index", "Produit/list")</li>
-                    <li>@Html.ActionLink("Ajouter Produit", "Index", "Produit/ajout")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Liste des Produits", "Index", "Produit/list")</li>
+                    <li>@Html.ActionLink("Ajouter un Produit", "Index", "Produit/ajout")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+
+                @using (Html.BeginForm("list", "Produit", FormMethod.Post, new { @class = "navbar-form", role = "search" }))
+                {
+                    @Html.ValidationSummary(true, "Echec lors de la saisie de la recherche")
+
+                    <div class="form-group">
+                        @Html.TextBox("NomProduit", "Rechercher un produit", new { name = "NomProduit", @class = "form-control" })
+                    </div>
+
+                    <input type="submit" class="btn btn-default" value="valider" />
+                }
+                <!--@Html.Partial("_LoginPartial")-->
             </div>
+
+            
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy;2018 Dutel Louis - Veillault Adrien</p>
         </footer>
     </div>
 

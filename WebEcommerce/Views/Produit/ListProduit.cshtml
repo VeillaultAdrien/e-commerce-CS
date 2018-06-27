@@ -6,21 +6,11 @@
 }
 
 <h1 class="titleProduct">Liste des produits</h1>
-@using (Html.BeginForm("list", "Produit", FormMethod.Post))
-{
-    @Html.ValidationSummary(true, "Echec lors de la saisie de la recherche")
- 
-    <div>
-        @Html.Label("Nom du produit")
-        @Html.TextBox("NomProduit","",new { name = "NomProduit" })
-    </div>
 
-    <input type="submit" value="valider" />
-}
 
 @foreach (var produit in Model)
 {
-    <div class="row">
+    <div class="row listProdD">
         <div class="col-md-4">@Html.ActionLink(@produit.Libelle, "get", new { id = @produit.IDProduit }, null)</div>
         <div class="col-md-4">@produit.Prix €</div>
         <div class="col-md-2">@Html.ActionLink("Modifier", "edit", new { id = @produit.IDProduit }, new { @class = "btn btn-default", role = "button" })</div>

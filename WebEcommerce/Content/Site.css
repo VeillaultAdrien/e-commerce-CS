@@ -27,3 +27,55 @@ textarea {
     text-align:center;
 
 }
+
+body {
+    background-color: #0F225E;
+    background-image: url('background.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.body-content {
+    background-color: #92E2F9;
+    margin-top: 2em;
+    box-shadow: 3px 3px 10px #888888;
+}
+
+.listProduit{
+    list-style-type: none;
+}
+
+.produit {
+    display: block;
+    width: 30%;
+    background-color: white;
+    padding: 0;
+    margin: 1em;
+    text-align: center;
+    box-shadow: 3px 3px 10px #888888;
+}
+
+.produit h3{
+    font-size: 1.5em;
+}
+
+.img-responsive{
+    margin: 0 auto;
+}
+
+.listProdD{
+    margin-left : 1em;
+    margin-right: 1em;
+    padding-top : .5em;
+    padding-bottom : .5em;
+    height : 3em;
+}
+.listProdD:nth-child(2n) {
+    background-color: #0F225E;
+    color: white;
+}
+
+.form-control{
+    margin : 0 auto;
+}

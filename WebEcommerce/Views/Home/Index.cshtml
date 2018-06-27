@@ -6,35 +6,31 @@
 }
 
 <br>
-@Html.ActionLink("Produits", "Index", "Produit")
+<div class="text-center">
+    <h2>Meilleurs ventes</h2>
 
-<ul>
-    @foreach (var produit in Model.ListeProduits)
-    {
-        <li>
-            @produit.Libelle -- @produit.Prix €
+    <ul class="listProduit container">
+        @foreach (var produit in Model.ListeProduits)
+        {
+            <li class="produit col-md-4 text-center">
+                <img src="https://dummyimage.com/200x200/033678/fff" class="img-responsive" />
+                <h3>@produit.Libelle -- @produit.Prix €</h3>
+            </li>
+        }
+    </ul>
+
+    <h2>Les derniers commandes</h2>
+    <ul class="listProduit container">
+        @foreach (var commande in Model.ListeCommandes)
+        {
+        <li class="produit col-md-4 text-center">
+            <h3>@commande.Client -- @commande.DateCommande</h3>
         </li>
-    }
-</ul>
-<ul>
-    @foreach (var commande in Model.ListeCommandes)
-    {
-        <li>
-            @commande.Client -- @commande.DateCommande
-        </li>
-    }
-</ul>
+        }
+    </ul>
 
-<br>
+    <br>
 
-@using (Html.BeginForm("list", "Produit", FormMethod.Post))
-{
-    @Html.ValidationSummary(true, "Echec lors de la saisie de la recherche")
+   
 
-    <div>
-        @Html.Label("Nom du produit")
-        @Html.TextBox("NomProduit", "", new { name = "NomProduit" })
-    </div>
-
-    <input type="submit" value="valider" />
-}
+</div>
