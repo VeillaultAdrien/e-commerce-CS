@@ -13,7 +13,7 @@ namespace Modele.e_commerce.Modele.Fluent
     {
         public ProduitFluent()
         {
-            ToTable("APP_Produit");
+            ToTable("APP_PRODUIT");
             HasKey(p => p.IDProduit);
 
             Property(p => p.IDProduit).HasColumnName("PRO_ID").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

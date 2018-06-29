@@ -10,33 +10,29 @@
 <div class="form-group">
     @Html.LabelFor(m => m.Code)
     
-        @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Code, new { @class = "form-control", required = true })
 
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.Libelle)
-    @Html.TextBoxFor(m => m.Libelle, new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.Libelle, new { @class = "form-control", required = true })
 </div>
 
 <div class="form-group">
     @Html.LabelFor(m => m.Prix)
-    @Html.TextBoxFor(m => m.Prix, new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.Prix, new { @class = "form-control", type = "text", pattern = "[0-9]*,[0-9][0-9]", required = true })
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.Stock)
-    @Html.TextBoxFor(m => m.Stock, new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.Stock, new { @class = "form-control", type="number", step = 1, min = 0, required = true })
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.Description)
-    @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", required = true })
 </div>
 <div class="form-group">
     @Html.LabelFor(m => m.CategorieId)
-    @Html.TextBoxFor(m => m.CategorieId, new { @class = "form-control" })
-</div>
-<div class="form-group">
-    @Html.LabelFor(m => m.Categorie)
-    @Html.TextBoxFor(m => m.Categorie, new { @class = "form-control" })
+    @Html.TextBoxFor(m => m.CategorieId, new { @class = "form-control", type = "number", step = 1, min = 0, required = true })
 </div>
     <div class="form-group">
  

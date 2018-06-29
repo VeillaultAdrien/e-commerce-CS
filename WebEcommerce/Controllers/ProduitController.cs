@@ -24,9 +24,6 @@ namespace WebEcommerce.Controllers
             if (HttpContext.Request.RequestType == "POST")
             {
                 String nom = Request.Params.Get("NomProduit");
-               
-                //Parce que la console c'est la vie pour débugger :p
-                System.Diagnostics.Debug.WriteLine("Nom du produit" + nom);
                 p = BusinessManager.Instance.SearchProduit(nom);
                 return View("ListProduit", p);
             }

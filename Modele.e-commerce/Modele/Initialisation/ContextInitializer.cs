@@ -60,7 +60,7 @@ namespace Modele.e_commerce.Modele.Initialisation
                 CategorieId = context.Categories.Find(2).IDCategorie,
                 Categorie = context.Categories.Find(2),
                 Code = 0003,
-                Description = "Un des meilleurs processeur du moment avec ses 6 coeurs et 6 threads",
+                Description = "Un des meilleurs processeur du moment avec ses 6 coeurs et 12 threads",
                 Libelle = "Intel Core i7 8700K",
                 Prix = 370.00F,
                 Stock = 10
@@ -96,7 +96,7 @@ namespace Modele.e_commerce.Modele.Initialisation
                 CategorieId = context.Categories.Find(2).IDCategorie,
                 Categorie = context.Categories.Find(2),
                 Code = 0006,
-                Description = "Un processeur symbolique pour les 40 ans de l'architecture x86 et les 30ans du 8086",
+                Description = "Un processeur symbolique pour les 40 ans de l'architecture x86 et du premier 8086 ainsi que les 50 ans d'Intel",
                 Libelle = "Intel Core i7 8086K",
                 Prix = 450.00F,
                 Stock = 5
