@@ -18,14 +18,17 @@ namespace Modele.e_commerce
             Database.SetInitializer<Context>(new ContextInitializer());
         }
 
-        public DbSet<Client> Clients { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasDefaultSchema("database");
             modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+        /// <summary>
+        /// Mes Clients
+        /// </summary>
+        public DbSet<Client> Clients { get; set; }
 
         /// <summary>
         /// Mes Produits
@@ -38,17 +41,16 @@ namespace Modele.e_commerce
         public DbSet<Categorie> Categories { get; set; }
 
         /// <summary>
-        /// Mes Catégories
+        /// Mes Commandes
         /// </summary>
         public DbSet<Commande> Commandes { get; set; }
 
         /// <summary>
-        /// Mes Status
+        /// Mes Statuts
         /// </summary>
         public DbSet<Statut> Statuts { get; set; }
 
         /// <summary>
-        /// Mes CommandeProduit
         /// </summary>
         public DbSet<CommandeProduit> CommandeProduits { get; set; }
     }
