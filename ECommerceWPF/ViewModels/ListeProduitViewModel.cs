@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using BusinessLayer.e_commerce;
 using Modele.e_commerce.Modele.Entities;
 
@@ -15,6 +16,8 @@ namespace ECommerceWPF.ViewModels
 
         private ObservableCollection<DetailProduitViewModel> _produits = null;
         private DetailProduitViewModel _selectedProduit;
+        private RelayCommand _suppProduit;
+        private String _productFilter;
 
         #endregion
 
@@ -26,6 +29,13 @@ namespace ECommerceWPF.ViewModels
         public ListeProduitViewModel() // à adapater avec la bd
         {
             // on appelle le mock pour initialiser une liste de produits
+            InitializeList();
+        }
+
+        #endregion
+
+        public void InitializeList()
+        {
             _produits = new ObservableCollection<DetailProduitViewModel>();
             foreach (Produit p in BusinessManager.Instance.GetAllProduit())
             {
@@ -34,9 +44,8 @@ namespace ECommerceWPF.ViewModels
 
             if (_produits != null && _produits.Count > 0)
                 _selectedProduit = _produits.ElementAt(0);
-        }
 
-        #endregion
+        }
 
         #region Data Bindings
 
@@ -63,6 +72,47 @@ namespace ECommerceWPF.ViewModels
             {
                 _selectedProduit = value;
                 OnPropertyChanged("SelectedProduit");
+            }
+        }
+
+        public ICommand SuppProduit
+        {
+            get
+            {
+                if (_suppProduit == null)
+                    _suppProduit = new RelayCommand(() => this.SuppProductData());
+                return _suppProduit;
+            }
+        }
+
+        private void SuppProductData()
+        {
+            if (_selectedProduit == null)
+            {
+                return;
+            }
+            BusinessManager.Instance.SupprimerProduit((_selectedProduit).IDProduit);
+            _produits.Remove(_selectedProduit);
+            OnPropertyChanged("Produits");
+        }
+
+        public String FilterProduct
+        {
+            get { return _productFilter; }
+            set
+            {
+                _productFilter = value;
+                _produits.Clear();
+                foreach (Produit p in BusinessManager.Instance.SearchProduit(_productFilter))
+                {
+                    _produits.Add(new DetailProduitViewModel(p));
+                }
+
+                if (_productFilter == "")
+                {
+                    InitializeList();
+                }
+                OnPropertyChanged("Produits");
             }
         }
 

@@ -28,7 +28,11 @@
             <Label>Nom du produit</Label>
             <TextBox Text="{Binding Nom}"></TextBox>
         </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Bottom">
+            <Label HorizontalAlignment="Center">Options</Label>
+            <Button Grid.Column="3" Margin="5" Grid.Row="2" FontSize="12px" Command="{Binding ModifyOperation}">Modifier</Button>
+        </StackPanel>
 
-        <Button Grid.Column="3" Margin="5" Grid.Row="2" FontSize="12px" Command="{Binding ModifyOperation}">Modifier</Button>
+        
     </Grid>
 </UserControl>

@@ -7,16 +7,26 @@
              xmlns:my="clr-namespace:ECommerceWPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel>
-        <ListView Background="LightSteelBlue" Width="300" DockPanel.Dock="Left" Margin="5px" ItemsSource="{Binding Produits, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduit, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+
+    
+
+    <StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+            <Label HorizontalAlignment="Center">Recherche</Label>
+            <TextBox Text="{Binding FilterProduct, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+        <ListView Background="LightSteelBlue" DockPanel.Dock="Left" Margin="5px" ItemsSource="{Binding Produits, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduit, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="50"  Header="Code" DisplayMemberBinding="{Binding Code}"/>
-                    <GridViewColumn Width="250" Header="Nom" DisplayMemberBinding="{Binding Nom}"/>
+                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Bottom">
+            <Label HorizontalAlignment="Center">Options</Label>
+            <Button Command="{Binding SuppProduit, UpdateSourceTrigger=PropertyChanged}" >Supprimer</Button>
+        </StackPanel>
         <my:DetailProduit Background="AliceBlue" DataContext="{Binding SelectedProduit, UpdateSourceTrigger=PropertyChanged}"></my:DetailProduit>
-    </DockPanel>
+    </StackPanel>
 </UserControl>
